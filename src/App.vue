@@ -46,7 +46,7 @@ const logInput = (fieldName, value) => {
 								placeholder="Пароль"
 							/>
 							<AuthCheckbox v-model="isRemembered" class="auth__checkbox" />
-							<button type="submit">Авторизация</button>
+							<button class="auth-btn" type="submit">Авторизация</button>
 						</div>
 						<div class="out__form">
 							<span>Забыли пароль?</span> <a href="#">Восстановить</a>
@@ -115,5 +115,17 @@ form p {
 	display: flex;
 	gap: 8px;
 	margin-bottom: 16px;
+}
+
+.auth-btn {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	padding: 12px;
+	margin-bottom: 40px;
+	align-self: center;
+	background-color: #78c887;
+	color: #fff;
+	border-radius: 4px;
 }
 </style>
