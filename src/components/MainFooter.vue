@@ -27,6 +27,12 @@
 </template>
 
 <style>
+.footer {
+	margin-top: 32px;
+	background-image: url(../assets/img/back.svg);
+	background-repeat: no-repeat;
+}
+
 .footer_wrap {
 	width: 100%;
 	max-width: 1240px;
@@ -74,8 +80,6 @@
 
 .footer__top {
 	color: #1f2125;
-	background-image: url(../assets/img/back.svg);
-	height: 228px;
 }
 
 .footer-bot {

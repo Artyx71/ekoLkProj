@@ -20,7 +20,7 @@
 				<div class="header__bot">
 					<ul class="header__bot-list">
 						<li class="header__list-item">
-							<router-link to="/">Главная</router-link>
+							<router-link to="/home">Главная</router-link>
 						</li>
 						<li class="header__list-item">
 							<router-link to="/">Информация о договорах</router-link>
@@ -104,7 +104,7 @@
 }
 
 .header__list-item a:hover {
-	padding-bottom: 18px;
+	padding-bottom: 20px;
 	border-bottom: 2px solid #006140;
 	transition: 0.2s ease;
 }
