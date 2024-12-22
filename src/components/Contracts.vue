@@ -85,7 +85,7 @@
 	color: rgba(219, 68, 68, 1);
 	padding: 4px 16px;
 	background-color: rgba(219, 68, 68, 0.1);
-	max-width: 90px;
+	max-width: 97px;
 	font-size: 14px;
 	border-radius: 20px;
 	margin-bottom: 34px;
