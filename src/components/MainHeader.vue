@@ -8,10 +8,10 @@
 					</a>
 					<div class="header__profile">
 						<p>ООО “Вывоз отходов”</p>
-						<a class="profilePic" href=""
-							><img src="../assets/img/profilePic.svg" alt="" /></a
-						><a class="settings" href=""
-							><img src="../assets/img/settings.svg" alt="" /></a
+						<router-link class="profilePic" to="/profile"
+							><img src="../assets/img/profilePic.svg" alt="" /></router-link
+						><router-link class="settings" to="/settings"
+							><img src="../assets/img/settings.svg" alt="" /></router-link
 						><router-link class="exit" to="/login"
 							><img src="../assets/img/exit.svg" alt=""
 						/></router-link>
@@ -26,7 +26,7 @@
 							<router-link to="/info">Информация о договорах</router-link>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/">Взаиморасчеты</router-link>
+							<router-link to="/counts">Взаиморасчеты</router-link>
 						</li>
 						<li class="header__list-item">
 							<router-link to="/mail">Письма</router-link>
