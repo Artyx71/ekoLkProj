@@ -23,7 +23,6 @@ const logInput = (fieldName, value) => {
 </script>
 
 <template>
-	<router-view></router-view>
 	<div class="auth">
 		<div class="wrap">
 			<main class="auth__inner">

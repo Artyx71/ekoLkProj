@@ -12,9 +12,9 @@
 							><img src="../assets/img/profilePic.svg" alt="" /></a
 						><a class="settings" href=""
 							><img src="../assets/img/settings.svg" alt="" /></a
-						><a class="exit" href=""
+						><router-link class="exit" to="/login"
 							><img src="../assets/img/exit.svg" alt=""
-						/></a>
+						/></router-link>
 					</div>
 				</div>
 				<div class="header__bot">
@@ -23,19 +23,19 @@
 							<router-link to="/home">Главная</router-link>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/">Информация о договорах</router-link>
+							<router-link to="/info">Информация о договорах</router-link>
 						</li>
 						<li class="header__list-item">
 							<router-link to="/">Взаиморасчеты</router-link>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/">Письма</router-link>
+							<router-link to="/mail">Письма</router-link>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/">Исполнение договора</router-link>
+							<router-link to="/contracts">Исполнение договора</router-link>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/">Дополнительные услуги</router-link>
+							<router-link to="/services">Дополнительные услуги</router-link>
 						</li>
 					</ul>
 				</div>
