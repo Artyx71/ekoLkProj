@@ -30,9 +30,25 @@
 					</ul>
 				</div>
 				<div class="contracts__inner-slider">
-					<a href="#">
-						<img src="../assets/img/car.svg" alt="" />
-					</a>
+					<Swiper
+						:slides-per-view="1"
+						:space-between="20"
+						direction="horizontal"
+						navigation
+						:pagination="{ clickable: true }"
+						loop
+					>
+						<SwiperSlide>
+							<a href="#">
+								<img src="../assets/img/car.svg" alt="Car 1" />
+							</a>
+						</SwiperSlide>
+						<SwiperSlide>
+							<a href="#">
+								<img src="../assets/img/rofl.jpg" alt="Car 1" />
+							</a>
+						</SwiperSlide>
+					</Swiper>
 				</div>
 			</div>
 		</div>
@@ -155,6 +171,42 @@
 .contracts__inner-slider {
 	padding-bottom: 32px;
 }
+
+.contracts__inner-slider {
+	padding-bottom: 32px;
+}
+
+.swiper-slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%; /* Слайды должны занимать всю доступную ширину */
+	height: 100%; /* Высота слайда должна быть задана */
+}
+.swiper-slide img {
+	max-width: 100%; /* Изображение не должно выходить за пределы слайда */
+	height: auto; /* Сохраняет пропорции изображения */
+	object-fit: cover; /* Обеспечивает правильное масштабирование */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	color: #006140; /* Измените цвет кнопок навигации */
+}
+
+.swiper-pagination-bullet {
+	background-color: #006140; /* Измените цвет точек пагинации */
+}
 </style>
 
-<script></script>
+<script>
+import 'swiper/swiper-bundle.css'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+
+export default {
+	components: {
+		Swiper,
+		SwiperSlide,
+	},
+}
+</script>
