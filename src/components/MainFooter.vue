@@ -53,6 +53,7 @@
 .footer__top-contacts {
 	font-size: 24px;
 	margin: 0px 48px 32px 48px;
+	font-weight: 700;
 }
 
 .footer-list {

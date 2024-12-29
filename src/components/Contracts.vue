@@ -14,7 +14,7 @@
 						<p class="pay__sum">К оплате</p>
 						<p class="pay">
 							<span>-12 548,68 ₽</span>
-							<button>Оплатить</button>
+							<button class="hover__btn">Оплатить</button>
 						</p>
 					</div>
 				</div>
@@ -196,6 +196,15 @@
 
 .swiper-pagination-bullet {
 	background-color: #006140; /* Измените цвет точек пагинации */
+}
+
+.hover__btn {
+	transition: all 0.3s ease;
+}
+
+.hover__btn:hover {
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень текста */
+	color: #000; /* Дополнительно можно изменить цвет */
 }
 </style>
 

@@ -4,7 +4,7 @@
 			<div class="mail__inner">
 				<div class="mail__inner-top">
 					<h2>Письма</h2>
-					<a href="#">Написать письмо</a>
+					<a class="hover__link" href="#">Написать письмо</a>
 				</div>
 				<div class="mail__inner_bot">
 					<div class="mail__inner-list">
@@ -113,12 +113,18 @@
 	background-color: rgba(120, 200, 135, 0.1);
 }
 
-.mail__inner-top a {
+.mail__inner-top .hover__link {
 	font-size: 16px;
 	padding: 12px 32px;
 	color: rgba(0, 97, 64, 1);
 	border: 1px solid rgba(0, 97, 64, 1);
 	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+.hover__link:hover {
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	color: #000;
 }
 
 .mail__inner-list {

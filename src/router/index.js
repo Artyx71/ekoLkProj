@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import Contracts from '../components/Contracts.vue'
+import Counts from '../components/Counts.vue'
 import Mails from '../components/Mails.vue'
 import Services from '../components/Services.vue'
 import Home from '../views/Home.vue'
@@ -34,6 +35,11 @@ const routes = [
 				path: '/services',
 				name: 'Services',
 				component: Services,
+			},
+			{
+				path: '/counts',
+				name: 'Counts',
+				component: Counts,
 			},
 		],
 	},
