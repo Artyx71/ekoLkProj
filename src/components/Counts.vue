@@ -21,7 +21,7 @@
 							<img src="../assets/img/arrow-right.svg" alt="" />
 							<p class="margin">{{ item.contractNumber }}</p>
 							<p class="grow">{{ item.date }}</p>
-							<p>{{ item.status }}</p>
+							<p class="status">{{ item.status }}</p>
 						</div>
 						<div v-if="item.isOpen" class="accordion-ans">
 							<p>Период {{ item.period }}</p>
@@ -140,5 +140,12 @@ export default {
 	display: flex;
 	background-color: transparent;
 	justify-content: space-between;
+}
+
+.status {
+	padding: 4px 16px;
+	color: rgba(31, 33, 37, 1);
+	background-color: rgba(235, 250, 235, 1);
+	border-radius: 20px;
 }
 </style>
