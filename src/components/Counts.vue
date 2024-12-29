@@ -115,6 +115,7 @@ export default {
 	padding: 20px 24px;
 	border-radius: 6px;
 	color: rgba(90, 100, 97, 1);
+	margin-bottom: 12px;
 }
 
 .accordion-head {
