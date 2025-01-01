@@ -23,19 +23,29 @@
 							<router-link to="/home">Главная</router-link>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/info">Информация о договорах</router-link>
+							<router-link to="/info" active-class="custom-active-class"
+								>Информация о договорах</router-link
+							>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/counts">Взаиморасчеты</router-link>
+							<router-link to="/counts" active-class="custom-active-class"
+								>Взаиморасчеты</router-link
+							>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/mail">Письма</router-link>
+							<router-link to="/mail" active-class="custom-active-class"
+								>Письма</router-link
+							>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/contracts">Исполнение договора</router-link>
+							<router-link to="/contracts" active-class="custom-active-class"
+								>Исполнение договора</router-link
+							>
 						</li>
 						<li class="header__list-item">
-							<router-link to="/services">Дополнительные услуги</router-link>
+							<router-link to="/services" active-class="custom-active-class"
+								>Дополнительные услуги</router-link
+							>
 						</li>
 					</ul>
 				</div>
@@ -107,5 +117,12 @@
 	padding-bottom: 20px;
 	border-bottom: 2px solid #006140;
 	transition: 0.2s ease;
+}
+
+.custom-active-class {
+	padding-bottom: 20px;
+	border-bottom: 2px solid #006140;
+	transition: 0.2s ease;
+	color: rgba(0, 97, 64, 1) !important;
 }
 </style>
