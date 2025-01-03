@@ -37,11 +37,11 @@
 								>Письма</router-link
 							>
 						</li>
-						<li class="header__list-item">
+						<!-- <li class="header__list-item">
 							<router-link to="/contracts" active-class="custom-active-class"
 								>Исполнение договора</router-link
 							>
-						</li>
+						</li> -->
 						<li class="header__list-item">
 							<router-link to="/services" active-class="custom-active-class"
 								>Дополнительные услуги</router-link
