@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import ContractModalBig from '../components/Forms/ContractModalBig.vue'
 
 import AuthCheckbox from '../components/AuthCheckbox.vue'
 import AuthInput from '../components/AuthInput.vue'
@@ -23,6 +24,7 @@ const logInput = (fieldName, value) => {
 </script>
 
 <template>
+	<ContractModalBig />
 	<div class="auth">
 		<div class="wrap">
 			<main class="auth__inner">

@@ -18,7 +18,11 @@
 						class="counts__inner-list-item"
 					>
 						<div class="accordion-head" @click="toggleAccordion(index)">
-							<img src="../assets/img/arrow-right.svg" alt="" />
+							<img
+								src="../assets/img/arrow-right.svg"
+								:class="{ rotate: item.isOpen }"
+								alt=""
+							/>
 							<p class="margin">{{ item.contractNumber }}</p>
 							<p class="grow">{{ item.date }}</p>
 							<p class="status">{{ item.status }}</p>
@@ -148,5 +152,9 @@ export default {
 	color: rgba(31, 33, 37, 1);
 	background-color: rgba(235, 250, 235, 1);
 	border-radius: 20px;
+}
+img.rotate {
+	transform: rotate(90deg);
+	transition: transform 0.3s ease;
 }
 </style>
