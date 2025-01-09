@@ -1,27 +1,18 @@
 <template>
-	<div v-if="visible" class="modal" @click.self="close">
+	<div class="modal">
 		<div class="modal-content">
-			<h3>{{ serviceTitle }}</h3>
-			<p>{{ serviceDescription }}</p>
-			<button @click="close">Закрыть</button>
+			<h3>Шаг {{ step }}</h3>
+			<p v-if="step === 1">{{ serviceTitle }}</p>
+			<p v-if="step === 2">Введите данные для "{{ serviceTitle }}"</p>
+			<p v-if="step === 3">{{ serviceDescription }}</p>
+			<div class="modal-footer">
+				<button v-if="step > 1" @click="$emit('prev')">Назад</button>
+				<button v-if="step < 3" @click="$emit('next')">Далее</button>
+				<button v-if="step === 3" @click="$emit('close')">Закрыть</button>
+			</div>
 		</div>
 	</div>
 </template>
-
-<script>
-export default {
-	props: {
-		serviceTitle: String,
-		serviceDescription: String,
-		visible: Boolean,
-	},
-	methods: {
-		close() {
-			this.$emit('close')
-		},
-	},
-}
-</script>
 
 <style>
 .modal {
@@ -30,17 +21,31 @@ export default {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.5);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 1000;
 }
 .modal-content {
-	background: white;
+	background-color: white;
 	padding: 20px;
 	border-radius: 8px;
-	max-width: 400px;
-	width: 90%;
+	width: 400px;
+	text-align: center;
+}
+.modal-footer {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
 }
 </style>
+
+<script>
+export default {
+	props: {
+		step: Number,
+		serviceTitle: String,
+		serviceDescription: String,
+	},
+}
+</script>

@@ -23,11 +23,13 @@
 				</div>
 			</div>
 		</div>
-		<Modal
+		<ContractModalBig
 			v-if="isModalVisible"
-			:serviceTitle="selectedService.title"
-			:serviceDescription="selectedService.description"
-			:visible="isModalVisible"
+			:step="currentStep"
+			:serviceTitle="selectedService?.title"
+			:serviceDescription="selectedService?.description"
+			@next="nextStep"
+			@prev="prevStep"
 			@close="closeModal"
 		/>
 	</div>
@@ -75,16 +77,18 @@
 </style>
 
 <script>
-import Modal from './Modal.vue'
+import ContractModalBig from './Forms/ContractModalBig.vue'
 
 export default {
 	components: {
-		Modal,
+		ContractModalBig,
 	},
 	data() {
 		return {
 			selectedService: null,
 			isModalVisible: false,
+			currentStep: 1,
+			totalSteps: 3, // Задаем общее количество шагов
 			services: [
 				{ title: 'Купить контейнер', description: 'Описание услуги 1' },
 				{ title: 'Заказать разовый вывоз', description: 'Описание услуги 2' },
@@ -110,10 +114,22 @@ export default {
 		openModal(service) {
 			this.selectedService = service
 			this.isModalVisible = true
+			this.currentStep = 1 // Устанавливаем шаг в начало
 		},
 		closeModal() {
 			this.isModalVisible = false
 			this.selectedService = null
+			this.currentStep = 1 // Сбрасываем шаг
+		},
+		nextStep() {
+			if (this.currentStep < this.totalSteps) {
+				this.currentStep++
+			}
+		},
+		prevStep() {
+			if (this.currentStep > 1) {
+				this.currentStep--
+			}
 		},
 	},
 }
