@@ -4,6 +4,7 @@ import Contracts from '../components/Contracts.vue'
 import Counts from '../components/Counts.vue'
 import Info from '../components/Info.vue'
 import Mails from '../components/Mails.vue'
+import Profile from '../components/Profile.vue'
 import Services from '../components/Services.vue'
 import Home from '../views/Home.vue'
 import LoginPage from '../views/LoginPage.vue'
@@ -46,6 +47,11 @@ const routes = [
 				path: '/info',
 				name: 'Info',
 				component: Info,
+			},
+			{
+				path: '/profile',
+				name: 'profile',
+				component: Profile,
 			},
 		],
 	},
