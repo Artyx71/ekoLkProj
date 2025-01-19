@@ -88,24 +88,43 @@ export default {
 			selectedService: null,
 			isModalVisible: false,
 			currentStep: 1,
-			totalSteps: 3, // Задаем общее количество шагов
+			totalSteps: 3,
 			services: [
-				{ title: 'Купить контейнер', description: 'Описание услуги 1' },
-				{ title: 'Заказать разовый вывоз', description: 'Описание услуги 2' },
-				{ title: 'Заказать строительство', description: 'Описание услуги 3' },
+				{
+					title: 'Купить контейнер',
+					description: 'Описание услуги 1',
+					step: 1,
+				},
+				{
+					title: 'Заказать разовый вывоз',
+					description: 'Описание услуги 2',
+					step: 2,
+				},
+				{
+					title: 'Заказать строительство',
+					description: 'Описание услуги 3',
+					step: 3,
+				},
 				{
 					title: 'Заказать вывоз опасных отходов',
 					description: 'Описание услуги 4',
+					step: 4,
 				},
-				{ title: 'Заказать паспорт отходов', description: 'Описание услуги 5' },
+				{
+					title: 'Заказать паспорт отходов',
+					description: 'Описание услуги 5',
+					step: 5,
+				},
 				{
 					title: 'Получить справку о количестве переданных отходов',
 					description: 'Описание услуги 6',
+					step: 6,
 				},
-				{ title: 'Сдать вторсырье', description: 'Описание услуги 7' },
+				{ title: 'Сдать вторсырье', description: 'Описание услуги 7', step: 7 },
 				{
 					title: 'Заказать вывоз промышленных отходов',
 					description: 'Описание услуги 8',
+					step: 8,
 				},
 			],
 		}
