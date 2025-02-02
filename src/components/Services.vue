@@ -23,19 +23,32 @@
 				</div>
 			</div>
 		</div>
-		<ContractModalBig
-			v-if="isModalVisible"
-			:step="currentStep"
-			:serviceTitle="selectedService?.title"
-			:serviceDescription="selectedService?.description"
-			@next="nextStep"
-			@prev="prevStep"
-			@close="closeModal"
-		/>
+		<div v-if="isModalVisible" class="modal-overlay" @click.self="closeModal">
+			<ContractModalBig
+				v-if="isModalVisible"
+				:step="currentStep"
+				:serviceTitle="selectedService?.title"
+				:serviceDescription="selectedService?.description"
+				@next="nextStep"
+				@prev="prevStep"
+				@close="closeModal"
+			/>
+		</div>
 	</div>
 </template>
 
 <style>
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .services {
 	padding-top: 32px;
 	background: linear-gradient(
@@ -133,12 +146,16 @@ export default {
 		openModal(service) {
 			this.selectedService = service
 			this.isModalVisible = true
-			this.currentStep = 1 // Устанавливаем шаг в начало
+			this.currentStep = 1
+			history.pushState({ modalOpen: true }, '') // Добавляем состояние в history
 		},
 		closeModal() {
 			this.isModalVisible = false
 			this.selectedService = null
-			this.currentStep = 1 // Сбрасываем шаг
+			this.currentStep = 1
+			if (history.state?.modalOpen) {
+				history.back() // Возвращаемся назад в истории
+			}
 		},
 		nextStep() {
 			if (this.currentStep < this.totalSteps) {

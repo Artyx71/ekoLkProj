@@ -352,6 +352,7 @@
 
 .modal__inner {
 	width: 680px;
+	overflow-x: hidden;
 	background-color: rgba(255, 255, 255, 1);
 	border-radius: 12px;
 	padding: 40px;

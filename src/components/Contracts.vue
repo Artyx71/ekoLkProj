@@ -34,7 +34,6 @@
 						:slides-per-view="1"
 						:space-between="20"
 						direction="horizontal"
-						navigation
 						:pagination="{ clickable: true }"
 						loop
 					>
@@ -170,6 +169,7 @@
 
 .contracts__inner-slider {
 	padding-bottom: 32px;
+	margin-right: 25px;
 }
 
 .contracts__inner-slider {
