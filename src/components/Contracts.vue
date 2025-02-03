@@ -170,7 +170,6 @@
 	width: 8px; /* Диаметр круга */
 	height: 8px;
 	border-radius: 50%; /* Делаем круглыми */
-	background-color: rgba(255, 255, 255, 1); /* Цвет точек */
 	opacity: 0.5;
 	transition: opacity 0.3s ease;
 	border-color: #fff;
