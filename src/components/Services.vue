@@ -23,16 +23,22 @@
 				</div>
 			</div>
 		</div>
-		<div v-if="isModalVisible" class="modal-overlay" @click.self="closeModal">
-			<ContractModalBig
-				v-if="isModalVisible"
-				:step="currentStep"
-				:serviceTitle="selectedService?.title"
-				:serviceDescription="selectedService?.description"
-				@next="nextStep"
-				@prev="prevStep"
-				@close="closeModal"
-			/>
+		<div
+			v-if="isModalVisible"
+			class="modal-overlay modal-view"
+			@click.self="closeModal"
+		>
+			<div class="modal-content" @click.stop>
+				<ContractModalBig
+					v-if="isModalVisible"
+					:step="currentStep"
+					:serviceTitle="selectedService?.title"
+					:serviceDescription="selectedService?.description"
+					@next="nextStep"
+					@prev="prevStep"
+					@close="closeModal"
+				/>
+			</div>
 		</div>
 	</div>
 </template>
@@ -48,7 +54,24 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 100;
 }
+.modal-overlay,
+.modal-view {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+	overflow-y: auto; /* если нужно */
+	padding: 20px; /* если нужно */
+}
+
 .services {
 	padding-top: 32px;
 	background: linear-gradient(
@@ -148,7 +171,11 @@ export default {
 			this.isModalVisible = true
 			this.currentStep = 1
 			history.pushState({ modalOpen: true }, '') // Добавляем состояние в history
+
+			// Добавляем обработчик нажатия Escape
+			window.addEventListener('keydown', this.handleEscape)
 		},
+
 		closeModal() {
 			this.isModalVisible = false
 			this.selectedService = null
@@ -156,7 +183,24 @@ export default {
 			if (history.state?.modalOpen) {
 				history.back() // Возвращаемся назад в истории
 			}
+
+			// Удаляем обработчик Escape
+			window.removeEventListener('keydown', this.handleEscape)
 		},
+
+		handleEscape(event) {
+			if (event.key === 'Escape') {
+				this.closeModal()
+			}
+		},
+
+		handleOverlayClick(event) {
+			// Проверяем, что кликнули именно на оверлей, а не на содержимое модального окна
+			if (event.target.classList.contains('modal-overlay')) {
+				this.closeModal()
+			}
+		},
+
 		nextStep() {
 			if (this.currentStep < this.totalSteps) {
 				this.currentStep++

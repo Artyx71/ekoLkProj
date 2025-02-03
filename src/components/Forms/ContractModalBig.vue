@@ -1,22 +1,137 @@
 <template>
-	<div class="modal-view">
-		<div class="wrap">
-			<div class="modal__inner">
-				<h2>Внести изменения в договор</h2>
-				<select v-model="selectedOption">
-					<option value="value1">Изменение условий договора</option>
-					<option value="value2">Добавить объект обслуживания</option>
+	<!-- <div class="modal-view"> -->
+	<div class="wrap">
+		<div class="modal__inner">
+			<h2>Внести изменения в договор</h2>
+			<select v-model="selectedOption">
+				<option value="value1">Изменение условий договора</option>
+				<option value="value2">Добавить объект обслуживания</option>
+			</select>
+			<div class="selection__list">
+				<select name="" id="">
+					<option value="value1">Договор</option></select
+				><select name="" id="">
+					<option value="value2">Площадка</option></select
+				><select name="" id="">
+					<option value="">Объект обслуживания</option>
 				</select>
-				<div class="selection__list">
-					<select name="" id="">
-						<option value="value1">Договор</option></select
-					><select name="" id="">
-						<option value="value2">Площадка</option></select
-					><select name="" id="">
-						<option value="">Объект обслуживания</option>
+			</div>
+			<div v-if="selectedOption === 'value1'" class="selection__list">
+				<div class="selection__date">
+					<input
+						class="input__date"
+						type="text "
+						placeholder="От"
+						onfocus="(this.type='date')"
+					/>
+					<span> - </span>
+					<input
+						class="input__date"
+						type="text"
+						placeholder="До"
+						onfocus="(this.type='date')"
+					/>
+					<select>
+						<option value="График">График</option>
 					</select>
 				</div>
-				<div v-if="selectedOption === 'value1'" class="selection__list">
+				<div class="add__graphs">
+					<button>
+						<img src="../../assets/img/plus.svg" alt="" />
+						<span>Добавить График</span>
+					</button>
+					<p>
+						За пределами выбранного срока график вывоза ТКО остаётся прежним
+					</p>
+				</div>
+				<div class="count">
+					<select name="" id="">
+						<option value="">Способ коммерческого учета</option></select
+					><select name="" id="">
+						<option value="">Категория</option></select
+					><select name="" id="">
+						<option value="">Расчетные единицы</option>
+					</select>
+				</div>
+
+				<div class="add__category">
+					<button>
+						<img src="../../assets/img/plus.svg" alt="" />
+						<span>Добавить категорию</span>
+					</button>
+					<input
+						type="text"
+						placeholder="Дата изменения договора"
+						onfocus="(this.type='date')"
+					/>
+				</div>
+			</div>
+			<div v-else-if="selectedOption === 'value2'" class="selection__list">
+				<div class="rights">
+					<h3>Право пользования помещением</h3>
+					<div class="rights__checkbox">
+						<label class="checkbox-container">
+							<input type="checkbox" />
+							<span class="checkmark">Собственность</span>
+						</label>
+						<label class="checkbox-container">
+							<input type="checkbox" />
+							<span class="checkmark">Аренда</span>
+						</label>
+					</div>
+					<input
+						type="text"
+						placeholder="Реквизиты св-ва о праве собственности"
+					/>
+					<input
+						placeholder="Дата начала собственности"
+						class="input__date"
+						type="text"
+						onfocus="(this.type='date')"
+					/>
+				</div>
+				<div class="building-type">
+					<h3>Тип здания</h3>
+					<div class="rights__checkbox">
+						<label class="checkbox-container">
+							<input type="checkbox" />
+							<span class="checkmark">МКД</span>
+						</label>
+						<label class="checkbox-container">
+							<input type="checkbox" />
+							<span class="checkmark">не МКД</span>
+						</label>
+					</div>
+				</div>
+				<div class="building-selects">
+					<select name="" id="">
+						<option value="">Способ коммерческого учета</option></select
+					><select name="" id="">
+						<option value="2">Категория</option>
+					</select>
+					<input type="text" placeholder="Кол-во расчетных единиц" />
+				</div>
+				<div class="categories">
+					<label class="categories-container" for="">
+						<select name="#" id="">
+							<option value="">Категория</option>
+						</select>
+						<img src="../../assets/img/x.svg" alt="" />
+					</label>
+					<input
+						placeholder="Кол-во расчетных единиц"
+						type="text"
+						name=""
+						id=""
+					/>
+					<button>
+						<img src="../../assets/img/plus.svg" alt="" /><span
+							>Добавить категорию отходообразования на данном обьекте</span
+						>
+					</button>
+				</div>
+				<div class="graphs">
+					<h3>График</h3>
 					<div class="selection__date">
 						<input
 							class="input__date"
@@ -32,134 +147,19 @@
 							onfocus="(this.type='date')"
 						/>
 						<select>
-							<option value="График">График</option>
+							<option value="График">
+								Понедельник, Вторник, Среда, Четверг
+							</option>
 						</select>
 					</div>
 					<div class="add__graphs">
 						<button>
 							<img src="../../assets/img/plus.svg" alt="" />
-							<span>Добавить График</span>
+							<span>Добавить график</span>
 						</button>
-						<p>
-							За пределами выбранного срока график вывоза ТКО остаётся прежним
-						</p>
-					</div>
-					<div class="count">
-						<select name="" id="">
-							<option value="">Способ коммерческого учета</option></select
-						><select name="" id="">
-							<option value="">Категория</option></select
-						><select name="" id="">
-							<option value="">Расчетные единицы</option>
-						</select>
-					</div>
-
-					<div class="add__category">
-						<button>
-							<img src="../../assets/img/plus.svg" alt="" />
-							<span>Добавить категорию</span>
-						</button>
-						<input
-							type="text"
-							placeholder="Дата изменения договора"
-							onfocus="(this.type='date')"
-						/>
 					</div>
 				</div>
-				<div v-else-if="selectedOption === 'value2'" class="selection__list">
-					<div class="rights">
-						<h3>Право пользования помещением</h3>
-						<div class="rights__checkbox">
-							<label class="checkbox-container">
-								<input type="checkbox" />
-								<span class="checkmark">Собственность</span>
-							</label>
-							<label class="checkbox-container">
-								<input type="checkbox" />
-								<span class="checkmark">Аренда</span>
-							</label>
-						</div>
-						<input
-							type="text"
-							placeholder="Реквизиты св-ва о праве собственности"
-						/>
-						<input
-							placeholder="Дата начала собственности"
-							class="input__date"
-							type="text"
-							onfocus="(this.type='date')"
-						/>
-					</div>
-					<div class="building-type">
-						<h3>Тип здания</h3>
-						<div class="rights__checkbox">
-							<label class="checkbox-container">
-								<input type="checkbox" />
-								<span class="checkmark">МКД</span>
-							</label>
-							<label class="checkbox-container">
-								<input type="checkbox" />
-								<span class="checkmark">не МКД</span>
-							</label>
-						</div>
-					</div>
-					<div class="building-selects">
-						<select name="" id="">
-							<option value="">Способ коммерческого учета</option></select
-						><select name="" id="">
-							<option value="2">Категория</option>
-						</select>
-						<input type="text" placeholder="Кол-во расчетных единиц" />
-					</div>
-					<div class="categories">
-						<label class="categories-container" for="">
-							<select name="#" id="">
-								<option value="">Категория</option>
-							</select>
-							<img src="../../assets/img/x.svg" alt="" />
-						</label>
-						<input
-							placeholder="Кол-во расчетных единиц"
-							type="text"
-							name=""
-							id=""
-						/>
-						<button>
-							<img src="../../assets/img/plus.svg" alt="" /><span
-								>Добавить категорию отходообразования на данном обьекте</span
-							>
-						</button>
-					</div>
-					<div class="graphs">
-						<h3>График</h3>
-						<div class="selection__date">
-							<input
-								class="input__date"
-								type="text "
-								placeholder="От"
-								onfocus="(this.type='date')"
-							/>
-							<span> - </span>
-							<input
-								class="input__date"
-								type="text"
-								placeholder="До"
-								onfocus="(this.type='date')"
-							/>
-							<select>
-								<option value="График">
-									Понедельник, Вторник, Среда, Четверг
-								</option>
-							</select>
-						</div>
-						<div class="add__graphs">
-							<button>
-								<img src="../../assets/img/plus.svg" alt="" />
-								<span>Добавить график</span>
-							</button>
-						</div>
-					</div>
-					<!-- <div class="access">
+				<!-- <div class="access">
 						<h3>Доступ к контейнерной площадке:</h3>
 						<div class="access-checkboxes">
 							<label class="checkbox-container">
@@ -184,14 +184,13 @@
 							</label>
 						</div>
 					</div> -->
-				</div>
-				<div class="btns">
-					<a class="white" href="">Назад</a
-					><a class="green" href="">Отправить</a>
-				</div>
+			</div>
+			<div class="btns">
+				<a class="white" href="">Назад</a><a class="green" href="">Отправить</a>
 			</div>
 		</div>
 	</div>
+	<!-- </div> -->
 </template>
 
 <style>

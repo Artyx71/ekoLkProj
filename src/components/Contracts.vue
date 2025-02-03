@@ -30,24 +30,14 @@
 					</ul>
 				</div>
 				<div class="contracts__inner-slider">
-					<Swiper
-						:slides-per-view="1"
-						:space-between="20"
-						direction="horizontal"
-						:pagination="{ clickable: true }"
-						loop
-					>
-						<SwiperSlide>
-							<a href="#">
-								<img src="../assets/img/car.svg" alt="Car 1" />
-							</a>
-						</SwiperSlide>
-						<SwiperSlide>
-							<a href="#">
-								<img src="../assets/img/rofl.jpg" alt="Car 1" />
-							</a>
-						</SwiperSlide>
-					</Swiper>
+					<Carousel :items-to-show="1" :wrap-around="true">
+						<Slide v-for="(image, index) in images" :key="index">
+							<img :src="image" alt="Slide Image" />
+						</Slide>
+						<template #addons>
+							<Pagination />
+						</template>
+					</Carousel>
 				</div>
 			</div>
 		</div>
@@ -176,26 +166,21 @@
 	padding-bottom: 32px;
 }
 
-.swiper-slide {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%; /* Слайды должны занимать всю доступную ширину */
-	height: 100%; /* Высота слайда должна быть задана */
-}
-.swiper-slide img {
-	max-width: 100%; /* Изображение не должно выходить за пределы слайда */
-	height: auto; /* Сохраняет пропорции изображения */
-	object-fit: cover; /* Обеспечивает правильное масштабирование */
+.carousel__pagination-button {
+	width: 8px; /* Диаметр круга */
+	height: 8px;
+	border-radius: 50%; /* Делаем круглыми */
+	background-color: rgba(255, 255, 255, 1); /* Цвет точек */
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
+	border-color: #fff;
+	border: 1px solid #fff;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-	color: #006140; /* Измените цвет кнопок навигации */
-}
-
-.swiper-pagination-bullet {
-	background-color: #006140; /* Измените цвет точек пагинации */
+.carousel__pagination-button:hover,
+.carousel__pagination-button--active {
+	opacity: 1;
+	background-color: rgba(255, 255, 255, 1); /* Цвет активной кнопки */
 }
 
 .hover__btn {
@@ -204,18 +189,27 @@
 
 .hover__btn:hover {
 	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень текста */
-	color: #000; /* Дополнительно можно изменить цвет */
+	color: transparent; /* Дополнительно можно изменить цвет */
 }
 </style>
 
 <script>
-import 'swiper/swiper-bundle.css'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-
-export default {
+import { defineComponent } from 'vue'
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css'
+import car from '../assets/img/car.svg'
+import rofl from '../assets/img/rofl.jpg'
+export default defineComponent({
 	components: {
-		Swiper,
-		SwiperSlide,
+		Carousel,
+		Slide,
+		Pagination,
+		Navigation,
 	},
-}
+	data() {
+		return {
+			images: [car, rofl],
+		}
+	},
+})
 </script>
