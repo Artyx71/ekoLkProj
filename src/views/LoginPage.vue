@@ -63,7 +63,7 @@ const logInput = (fieldName, value) => {
 	background-image: url(../assets/img/backAuth.png);
 	background-repeat: no-repeat;
 
-	height: 1920px;
+	height: 100vh;
 }
 
 .wrap {

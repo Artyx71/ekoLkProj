@@ -21,12 +21,9 @@
 				<div class="contracts__inner-actuals">
 					<h2>Действующие договоры</h2>
 					<ul>
-						<li><a href="">ТКО2021-2316583</a></li>
-						<li><a href="">ТКО2021-2316583</a></li>
-						<li><a href="">ТКО2021-2316583</a></li>
-						<li><a href="">ТКО2021-2316583</a></li>
-						<li><a href="">ТКО2021-2316583</a></li>
-						<li><a href="">ТКО2021-2316583</a></li>
+						<li v-for="(contract, index) in contracts" :key="index">
+							<a href="">{{ contract }}</a>
+						</li>
 					</ul>
 				</div>
 				<div class="contracts__inner-slider">
@@ -198,6 +195,7 @@ import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 import car from '../assets/img/car.svg'
 import rofl from '../assets/img/rofl.jpg'
+
 export default defineComponent({
 	components: {
 		Carousel,
@@ -208,6 +206,14 @@ export default defineComponent({
 	data() {
 		return {
 			images: [car, rofl],
+			contracts: [
+				'ТКО2021-2316583',
+				'ТКО2021-2316584',
+				'ТКО2021-2316585',
+				'ТКО2021-2316586',
+				'ТКО2021-2316587',
+				'ТКО2021-2316588',
+			],
 		}
 	},
 })
