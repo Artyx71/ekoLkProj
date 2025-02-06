@@ -1,5 +1,4 @@
 <template>
-	<!-- <div class="modal-view"> -->
 	<div class="wrap">
 		<div class="modal__inner">
 			<h2>Внести изменения в договор</h2>
@@ -8,33 +7,25 @@
 				<option value="value2">Добавить объект обслуживания</option>
 			</select>
 			<div class="selection__list">
-				<select name="" id="">
-					<option value="value1">Договор</option></select
-				><select name="" id="">
-					<option value="value2">Площадка</option></select
-				><select name="" id="">
+				<select>
+					<option value="value1">Договор</option>
+				</select>
+				<select>
+					<option value="value2">Площадка</option>
+				</select>
+				<select>
 					<option value="">Объект обслуживания</option>
 				</select>
 			</div>
 			<div v-if="selectedOption === 'value1'" class="selection__list">
 				<div class="selection__date">
-					<input
-						class="input__date"
-						type="text "
-						placeholder="От"
-						onfocus="(this.type='date')"
-					/>
-					<span> - </span>
-					<input
-						class="input__date"
-						type="text"
-						placeholder="До"
-						onfocus="(this.type='date')"
-					/>
-					<select>
-						<option value="График">График</option>
-					</select>
+					<VueDatePicker v-model="dateFrom" placeholder="От" />
+					<span class="date-separator"> - </span>
+					<VueDatePicker v-model="dateTo" placeholder="До" />
 				</div>
+				<select class="graph-select">
+					<option value="График">График</option>
+				</select>
 				<div class="add__graphs">
 					<button>
 						<img src="../../assets/img/plus.svg" alt="" />
@@ -45,11 +36,13 @@
 					</p>
 				</div>
 				<div class="count">
-					<select name="" id="">
-						<option value="">Способ коммерческого учета</option></select
-					><select name="" id="">
-						<option value="">Категория</option></select
-					><select name="" id="">
+					<select>
+						<option value="">Способ коммерческого учета</option>
+					</select>
+					<select>
+						<option value="">Категория</option>
+					</select>
+					<select>
 						<option value="">Расчетные единицы</option>
 					</select>
 				</div>
@@ -59,138 +52,31 @@
 						<img src="../../assets/img/plus.svg" alt="" />
 						<span>Добавить категорию</span>
 					</button>
-					<input
-						type="text"
+					<VueDatePicker
+						v-model="contractChangeDate"
 						placeholder="Дата изменения договора"
-						onfocus="(this.type='date')"
 					/>
 				</div>
 			</div>
 			<div v-else-if="selectedOption === 'value2'" class="selection__list">
 				<div class="rights">
 					<h3>Право пользования помещением</h3>
-					<div class="rights__checkbox">
-						<label class="checkbox-container">
-							<input type="checkbox" />
-							<span class="checkmark">Собственность</span>
-						</label>
-						<label class="checkbox-container">
-							<input type="checkbox" />
-							<span class="checkmark">Аренда</span>
-						</label>
-					</div>
 					<input
 						type="text"
 						placeholder="Реквизиты св-ва о праве собственности"
 					/>
-					<input
+					<VueDatePicker
+						v-model="ownershipStartDate"
 						placeholder="Дата начала собственности"
-						class="input__date"
-						type="text"
-						onfocus="(this.type='date')"
 					/>
 				</div>
-				<div class="building-type">
-					<h3>Тип здания</h3>
-					<div class="rights__checkbox">
-						<label class="checkbox-container">
-							<input type="checkbox" />
-							<span class="checkmark">МКД</span>
-						</label>
-						<label class="checkbox-container">
-							<input type="checkbox" />
-							<span class="checkmark">не МКД</span>
-						</label>
-					</div>
-				</div>
-				<div class="building-selects">
-					<select name="" id="">
-						<option value="">Способ коммерческого учета</option></select
-					><select name="" id="">
-						<option value="2">Категория</option>
-					</select>
-					<input type="text" placeholder="Кол-во расчетных единиц" />
-				</div>
-				<div class="categories">
-					<label class="categories-container" for="">
-						<select name="#" id="">
-							<option value="">Категория</option>
-						</select>
-						<img src="../../assets/img/x.svg" alt="" />
-					</label>
-					<input
-						placeholder="Кол-во расчетных единиц"
-						type="text"
-						name=""
-						id=""
-					/>
-					<button>
-						<img src="../../assets/img/plus.svg" alt="" /><span
-							>Добавить категорию отходообразования на данном обьекте</span
-						>
-					</button>
-				</div>
-				<div class="graphs">
-					<h3>График</h3>
-					<div class="selection__date">
-						<input
-							class="input__date"
-							type="text "
-							placeholder="От"
-							onfocus="(this.type='date')"
-						/>
-						<span> - </span>
-						<input
-							class="input__date"
-							type="text"
-							placeholder="До"
-							onfocus="(this.type='date')"
-						/>
-						<select>
-							<option value="График">
-								Понедельник, Вторник, Среда, Четверг
-							</option>
-						</select>
-					</div>
-					<div class="add__graphs">
-						<button>
-							<img src="../../assets/img/plus.svg" alt="" />
-							<span>Добавить график</span>
-						</button>
-					</div>
-				</div>
-				<!-- <div class="access">
-						<h3>Доступ к контейнерной площадке:</h3>
-						<div class="access-checkboxes">
-							<label class="checkbox-container">
-								<input type="checkbox" />
-								<span class="checkmark">Собственность</span>
-							</label>
-							<label class="checkbox-container">
-								<input type="checkbox" />
-								<span class="checkmark">Собственность</span>
-							</label>
-							<label class="checkbox-container">
-								<input type="checkbox" />
-								<span class="checkmark">Собственность</span>
-							</label>
-							<label class="checkbox-container">
-								<input type="checkbox" />
-								<span class="checkmark">Собственность</span>
-							</label>
-							<label class="checkbox-container">
-								<input type="checkbox" />
-								<span class="checkmark">Собственность</span>
-							</label>
-						</div>
-					</div> -->
 			</div>
 			<div class="btns">
-				<a class="white" href="">Назад</a><a class="green" href="">Отправить</a>
+				<a class="white" href="">Назад</a>
+				<a class="green" href="">Отправить</a>
 			</div>
 		</div>
 	</div>
-	<!-- </div> -->
 </template>
 
 <style>
@@ -418,21 +304,35 @@
 	color: rgba(255, 255, 255, 1) !important;
 }
 
-.modal__inner select {
-	appearance: none; /* Убираем стандартный стиль */
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	padding-right: 22px; /* Увеличиваем правый отступ */
-	background: url('../../assets/img/arrow-down.svg') no-repeat right 15px center; /* Путь к кастомной иконке */
-	background-size: 8px;
+.selection__date {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.date-separator {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.graph-select {
+	margin-top: 10px;
+	width: 100%;
 }
 </style>
-
 <script>
+import VueDatePicker from '@vuepic/vue-datepicker'
+import '@vuepic/vue-datepicker/dist/main.css'
+
 export default {
+	components: { VueDatePicker },
 	data() {
 		return {
 			selectedOption: 'value1',
+			dateFrom: null,
+			dateTo: null,
+			contractChangeDate: null,
+			ownershipStartDate: null,
 		}
 	},
 }

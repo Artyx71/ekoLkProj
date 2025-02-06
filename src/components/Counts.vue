@@ -116,7 +116,7 @@ export default {
 
 .counts__inner-list-item {
 	background-color: #fff;
-	padding: 20px 24px;
+
 	border-radius: 6px;
 	color: rgba(90, 100, 97, 1);
 	margin-bottom: 12px;
@@ -124,6 +124,7 @@ export default {
 
 .accordion-head {
 	display: flex;
+	padding: 20px 24px;
 	justify-content: space-between;
 	cursor: pointer;
 }
@@ -140,10 +141,9 @@ export default {
 }
 
 .accordion-ans {
-	padding: 16px 0px 16px 60px;
-	background-color: #f9f9f9;
+	padding: 16px 16px 16px 60px;
+	background: rgba(235, 250, 235, 1);
 	display: flex;
-	background-color: transparent;
 	justify-content: space-between;
 }
 
