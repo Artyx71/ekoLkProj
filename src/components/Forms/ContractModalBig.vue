@@ -417,6 +417,15 @@
 	background-color: rgba(0, 97, 64, 1);
 	color: rgba(255, 255, 255, 1) !important;
 }
+
+.modal__inner select {
+	appearance: none; /* Убираем стандартный стиль */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding-right: 22px; /* Увеличиваем правый отступ */
+	background: url('../../assets/img/arrow-down.svg') no-repeat right 15px center; /* Путь к кастомной иконке */
+	background-size: 8px;
+}
 </style>
 
 <script>
