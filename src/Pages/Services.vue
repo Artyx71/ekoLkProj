@@ -113,7 +113,7 @@
 </style>
 
 <script>
-import ContractModalBig from './Forms/ContractModalBig.vue'
+import ContractModalBig from '../components/Forms/ContractModalBig.vue'
 
 export default {
 	components: {
